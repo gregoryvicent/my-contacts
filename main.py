@@ -1,9 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 from src.lib.managefile import ManageFile
 
 app = FastAPI()
-mc = ManageFile()
+mf = ManageFile()
 
 @app.get('/')
 def root():
@@ -11,21 +11,21 @@ def root():
 
 @app.get('/api/contacts')
 def get_all_contacts():
-  return mc.read_file() 
+  return mf.read_file() 
 
 @app.get('/api/contacts/{id_contact}')
 def get_single_contact(id_contact:str):
-  contacs = mc.read_file()  
+  contacs = mf.read_file()  
   
   for contac in contacs:
     if id_contact == contac['id']:
       return contac
 
-  return {"message": "Contact not found"}
+  raise HTTPException(status_code=404, detail="Contact not found")
 
 @app.post('/api/contacts')
-def add_contact():
-  pass
+def add_contact(item:str):
+  print(item)
 
 @app.put('/api/contacts/{id_contact}')
 def update_contact():
