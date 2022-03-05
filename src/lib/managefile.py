@@ -10,4 +10,4 @@ class ManageFile:
 
   def write_file(self, data:str):
     with open(self.__file_path, "w") as file:
-      file.write(data)
+      file.write(json.dumps(data))
