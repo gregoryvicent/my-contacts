@@ -8,12 +8,18 @@ Proyecto donde se desarrolla una API REST de contactos telefónicos usando FastA
 
 ## Para desplegarse
 **1:** Clonar el repositorio: 
- `git clone https://github.com/gregoryvicent/my-contacts.git`
+ ```
+ git clone https://github.com/gregoryvicent/my-contacts.git
+ ```
 
 **2:** Ingrese en el proyecto e instale las dependencias de python:
-`pip install .`
+```
+pip install .
+```
 
 **3:** En su consola ejecute uvicorn para correr el API en un servidor web. Por defecto es en el puerto 8000:
-`uvicorn main:app --reload`
+```
+uvicorn main:app --reload
+```
 
 Con estos sencillos pasos la aplicación ya debería estar corriendo correctamente.
